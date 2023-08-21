@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(180deg, red 0%, white 30%);
+  background: rgb(248, 114, 114);
 }
 
 code {
@@ -16,19 +16,12 @@ code {
 .waldo-img-container {
   display: flex;
   flex-shrink: 0;
-  height: auto;
-  width: 100vw;
+  height: 2544;
+  width: 3600px;
   border: 5px red solid;
 }
 
 img {
   height: 100%;
   width: 100%;
-}
-
-@media (max-width: 480px) {
-  .waldo-img-container {
-    height: 2544;
-    width: 3600px;
-  }
 }
