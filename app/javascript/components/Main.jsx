@@ -1,7 +1,10 @@
 import React from "react";
+import waldoConvention from '../../assets/images/Waldo_Convention.jpg';
 
 export default function Main() {
     return(
-        <div>Hello, main page</div>
+        <div className='waldo-img-container'>
+          <img src={waldoConvention} />
+        </div>
     )
 };
