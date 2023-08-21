@@ -15,8 +15,7 @@ code {
 
 .waldo-img-container {
   display: flex;
-  flex-shrink: 0;
-  height: 2544;
+  height: 2544px;
   width: 3600px;
   border: 5px red solid;
 }
