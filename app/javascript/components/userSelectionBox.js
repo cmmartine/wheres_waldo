@@ -2,10 +2,11 @@ const halfBoxSize = {x: 55, y: 85};
 
 export function createBox(userSelectionCoords) {
   const boxCoordinates = calcBoxCoordinates(userSelectionCoords);
+  removeBox();
   drawBox(boxCoordinates);
 }
 
-export function removeBox() {
+function removeBox() {
   const box = document.getElementById('user-selection-box');
   if(box) {
     box.remove();

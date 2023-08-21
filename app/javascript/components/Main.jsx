@@ -1,13 +1,12 @@
 import React from "react";
 import waldoConvention from '../../assets/images/Waldo_Convention.jpg';
-import { createBox, removeBox } from "./userSelectionBox";
+import { createBox } from "./userSelectionBox";
 
 export default function Main() {
 
   function handleUserClick(e) {
     const x = e.pageX;
     const y = e.pageY;
-    removeBox();
     createBox({x: x, y: y});
   }
 
