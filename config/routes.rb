@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'main/index'
+  get 'convention_character/index'
   root "main#index"
-
-  resources :convention_characters, only: [:index]
+  get "/*path" => "main#index"
 end

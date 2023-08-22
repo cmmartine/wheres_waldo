@@ -1,0 +1,2 @@
+module ConventionCharacterHelper
+end
