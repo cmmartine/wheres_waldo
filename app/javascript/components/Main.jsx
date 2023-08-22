@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import waldoConvention from '../../assets/images/Waldo_Convention.jpg';
-import { createBox } from "./userSelectionBox";
+import { createBoxAndSelection } from "./userSelectionBox";
 
 export default function Main() {
   const [characters, setCharacters] = useState([]);
@@ -16,7 +16,7 @@ export default function Main() {
     const x = e.pageX;
     const y = e.pageY;
     console.log(characters)
-    createBox({x: x, y: y});
+    createBoxAndSelection({x: x, y: y}, characters);
   }
 
   document.addEventListener('click', (e) => {handleUserClick(e)});

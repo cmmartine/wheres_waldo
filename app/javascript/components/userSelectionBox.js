@@ -1,15 +1,19 @@
 const halfBoxSize = {x: 55, y: 85};
+const root = document.getElementById('root');
 
-export function createBox(userSelectionCoords) {
+export function createBoxAndSelection(userSelectionCoords, characters) {
   const boxCoordinates = calcBoxCoordinates(userSelectionCoords);
   removeBox();
   drawBox(boxCoordinates);
+  createDropDown(boxCoordinates, characters);
 }
 
 function removeBox() {
   const box = document.getElementById('user-selection-box');
-  if(box) {
+  const dropDown = document.getElementById('user-selection-dropdown');
+  if(box && dropDown) {
     box.remove();
+    dropDown.remove();
   } else {
     return
   }
@@ -25,9 +29,33 @@ function calcBoxCoordinates(userSelectionCoords) {
   return boxCoordinates;
 }
 
+function createDropDown(boxCoords, characters) {
+  let charId = 0;
+  const dropDown = document.createElement('div');
+  dropDown.id = 'user-selection-dropdown';
+  dropDown.style.position = 'absolute';
+  dropDown.style.left = boxCoords.right + 10 +'px'; // align drop down to attach to top right of box
+  dropDown.style.top = boxCoords.top + 'px';
+  dropDown.style.border = '2px solid black';
+  dropDown.style.background = 'white';
+  dropDown.style.width = '200px';
+  dropDown.style.height = 'auto';
+  characters.forEach((character) => {
+    const charBtn = document.createElement('button');
+    charBtn.innerText = character.name;
+    charBtn.style.width = '100%';
+    charBtn.style.height = '35px';
+    charBtn.style.background = 'white';
+    charBtn.style.border = '1px solid black';
+    charBtn.classList.add('character-button');
+    charBtn.id = charId;
+    charId += 1;
+    dropDown.appendChild(charBtn);
+  })
+  root.appendChild(dropDown);
+}
+
 function drawBox(boxCoords) {
-  console.log(boxCoords)
-  const root = document.getElementById('root');
   const box = document.createElement('div');
   box.id = 'user-selection-box';
   box.style.position = 'absolute';
