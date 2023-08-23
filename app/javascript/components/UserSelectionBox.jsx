@@ -42,7 +42,7 @@ export default function UserSelectionBox(props) {
       <div style={boxStyle} />
       <div style={dropDownStyle}>
         {characters.map((character) => (
-          <button style={characterButtonStyle} onClick={() => verifyCharacter(boxCoords, character)}>
+          <button style={characterButtonStyle} disabled={character.found} onClick={() => verifyCharacter(boxCoords, character)}>
             {character.name}
           </button>
         ))}

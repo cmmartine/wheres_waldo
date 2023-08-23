@@ -32,7 +32,7 @@ export default function Main() {
     console.log(characters);
   }
 
-  const verifyCharacter= (boxCoords, chosenCharacter) => {
+  const verifyCharacter = (boxCoords, chosenCharacter) => {
     let correctXValue = false;
     let correctYValue = false;
     if (
