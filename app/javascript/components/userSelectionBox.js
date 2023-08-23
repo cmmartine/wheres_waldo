@@ -46,7 +46,7 @@ function drawBox(boxCoords) {
 }
 
 function createDropDown(boxCoords, characters) {
-  let charId = 0;
+  let charId = 1;
   const dropDown = document.createElement('div');
   dropDown.id = 'user-selection-dropdown';
   dropDown.style.position = 'absolute';
@@ -64,7 +64,8 @@ function createDropDown(boxCoords, characters) {
     charBtn.style.height = '35px';
     charBtn.style.background = 'white';
     charBtn.style.border = '1px solid black';
-    charBtn.classList.add('character-button-' + `${charId}`);
+    charBtn.classList.add('character-button');
+    charBtn.id = charId;
     charId += 1;
 
     dropDown.appendChild(charBtn);
