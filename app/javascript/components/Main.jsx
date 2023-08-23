@@ -5,12 +5,24 @@ import { createBoxAndSelection } from "./userSelectionBox";
 
 export default function Main() {
   const [characters, setCharacters] = useState([]);
+  const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {
-    fetch('/convention_character/index')
-    .then((res) => res.json())
-    .then((data) => setCharacters(data));
-  }, [])
+    if (!dataFetched) {
+      fetch('/convention_character/index')
+      .then((res) => res.json())
+      .then((data) => {
+        let characterArray = [];
+        data.map((character) => {
+          characterArray.push(
+            Object.assign(character, {found: false})
+          );
+        })
+        setCharacters(characterArray);
+      })
+      setDataFetched(true);
+    }
+  }, [dataFetched]) 
 
   const handleUserClickCreate = (e) => {
     const x = e.pageX;
