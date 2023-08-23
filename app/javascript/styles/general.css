@@ -13,6 +13,22 @@ code {
     monospace;
 }
 
+.game-container {
+  display: flex;
+  height: 2654px;
+  width: 3800px;
+}
+
+.game-timer {
+  display: flex;
+  justify-content: center;
+  height: 110px;
+  width: 200px;
+  background: white;
+  font-size: 100px;
+  border: 2px black solid;
+}
+
 .waldo-img-container {
   display: flex;
   height: 2544px;

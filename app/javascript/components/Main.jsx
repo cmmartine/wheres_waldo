@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import waldoConvention from '../../assets/images/Waldo_Convention.jpg';
 import UserSelectionBox from './UserSelectionBox';
+import GameTimer from "./GameTimer";
 
 export default function Main() {
   const [characters, setCharacters] = useState([]);
@@ -73,9 +74,12 @@ export default function Main() {
 
   if (characters !== []) {
   return(
-    <div className='waldo-img-container'>
-      <img src={waldoConvention} onClick={handleUserClickCreate}/>
-      <UserSelectionBox userSelectionCoords={userSelectionCoords} characters={characters} verifyCharacter={verifyCharacter}/>
+    <div className='game-container'>
+      <div className='waldo-img-container'>
+        <img src={waldoConvention} onClick={handleUserClickCreate}/>
+        <UserSelectionBox userSelectionCoords={userSelectionCoords} characters={characters} verifyCharacter={verifyCharacter}/>
+      </div>
+      <GameTimer />
     </div>
   )
   } else {
