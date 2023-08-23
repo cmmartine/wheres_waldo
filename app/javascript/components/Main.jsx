@@ -12,18 +12,15 @@ export default function Main() {
     .then((data) => setCharacters(data));
   }, [])
 
-  function handleUserClick(e) {
+  const handleUserClickCreate = (e) => {
     const x = e.pageX;
     const y = e.pageY;
-    console.log(characters)
     createBoxAndSelection({x: x, y: y}, characters);
   }
 
-  document.addEventListener('click', (e) => {handleUserClick(e)});
-
   return(
     <div className='waldo-img-container'>
-      <img src={waldoConvention} />
+      <img src={waldoConvention} onClick={handleUserClickCreate}/>
     </div>
   )
 };

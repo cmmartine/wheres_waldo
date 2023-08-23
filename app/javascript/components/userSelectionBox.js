@@ -1,3 +1,5 @@
+import verifyCharacter from "./verifySelectedCharacter";
+
 const halfBoxSize = {x: 55, y: 85};
 const root = document.getElementById('root');
 
@@ -29,32 +31,6 @@ function calcBoxCoordinates(userSelectionCoords) {
   return boxCoordinates;
 }
 
-function createDropDown(boxCoords, characters) {
-  let charId = 0;
-  const dropDown = document.createElement('div');
-  dropDown.id = 'user-selection-dropdown';
-  dropDown.style.position = 'absolute';
-  dropDown.style.left = boxCoords.right + 10 +'px'; // align drop down to attach to top right of box
-  dropDown.style.top = boxCoords.top + 'px';
-  dropDown.style.border = '2px solid black';
-  dropDown.style.background = 'white';
-  dropDown.style.width = '200px';
-  dropDown.style.height = 'auto';
-  characters.forEach((character) => {
-    const charBtn = document.createElement('button');
-    charBtn.innerText = character.name;
-    charBtn.style.width = '100%';
-    charBtn.style.height = '35px';
-    charBtn.style.background = 'white';
-    charBtn.style.border = '1px solid black';
-    charBtn.classList.add('character-button');
-    charBtn.id = charId;
-    charId += 1;
-    dropDown.appendChild(charBtn);
-  })
-  root.appendChild(dropDown);
-}
-
 function drawBox(boxCoords) {
   const box = document.createElement('div');
   box.id = 'user-selection-box';
@@ -69,3 +45,30 @@ function drawBox(boxCoords) {
   root.appendChild(box);
 }
 
+function createDropDown(boxCoords, characters) {
+  let charId = 0;
+  const dropDown = document.createElement('div');
+  dropDown.id = 'user-selection-dropdown';
+  dropDown.style.position = 'absolute';
+  dropDown.style.left = boxCoords.right + 10 +'px'; // align drop down to attach to top right of box
+  dropDown.style.top = boxCoords.top + 'px';
+  dropDown.style.border = '2px solid black';
+  dropDown.style.background = 'white';
+  dropDown.style.width = '200px';
+  dropDown.style.height = 'auto';
+
+  characters.forEach((character) => {
+    const charBtn = document.createElement('button');
+    charBtn.innerText = character.name;
+    charBtn.style.width = '100%';
+    charBtn.style.height = '35px';
+    charBtn.style.background = 'white';
+    charBtn.style.border = '1px solid black';
+    charBtn.classList.add('character-button-' + `${charId}`);
+    charId += 1;
+
+    dropDown.appendChild(charBtn);
+    charBtn.addEventListener('click', () => verifyCharacter(boxCoords, character));
+  })
+  root.appendChild(dropDown);
+}
