@@ -14,4 +14,5 @@ ConventionCharacter.create!(name: 'Optimus Prime', location: [3522, 1920])
 ConventionCharacter.create!(name: 'Homer Simpson', location: [1856, 2364])
 ConventionCharacter.create!(name: 'Sub Zero', location: [1428, 124])
 
+Score.create!(name: 'Bob', score: 567)
 Score.create!(name: 'Chris', score: 63)

@@ -31,4 +31,5 @@ import '../index';
 import '../components/Main.jsx';
 import '../components/UserSelectionBox.jsx';
 import '../components/GameTimer.jsx';
+import '../components/ScoreBoard.jsx'
 import '../styles/general.css';

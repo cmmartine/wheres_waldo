@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import waldoConvention from '../../assets/images/Waldo_Convention.jpg';
 import UserSelectionBox from './UserSelectionBox';
 import GameTimer from "./GameTimer";
+import ScoreBoard from "./ScoreBoard";
 
 export default function Main() {
   const [characters, setCharacters] = useState([]);
   const [dataFetched, setDataFetched] = useState(false);
   const [userSelectionCoords, setUserSelectionCoords] = useState({x: 0, y: 0});
+  const [scoreList, setScoreList] = useState([]);
 
   useEffect(() => {
     if (!dataFetched) {
@@ -22,6 +24,9 @@ export default function Main() {
         })
         setCharacters(characterArray);
       })
+      fetch('/scores/index')
+      .then((res) => res.json())
+      .then((data) => setScoreList(data));
       setDataFetched(true);
     }
   }, [dataFetched])
@@ -30,7 +35,6 @@ export default function Main() {
     const x = e.pageX;
     const y = e.pageY;
     setUserSelectionCoords({x: x, y: y});
-    console.log(characters);
   }
 
   const verifyCharacter = (boxCoords, chosenCharacter) => {
@@ -70,7 +74,7 @@ export default function Main() {
     } else {
       console.log('Wrong!');
     }
-    console.log(isGameFinished());
+    const gameFinished = isGameFinished();
   }
 
   function isGameFinished() {
@@ -90,7 +94,10 @@ export default function Main() {
         <img src={waldoConvention} onClick={handleUserClickCreate}/>
         <UserSelectionBox userSelectionCoords={userSelectionCoords} characters={characters} verifyCharacter={verifyCharacter}/>
       </div>
-      <GameTimer />
+      <div>
+        <GameTimer />
+        <ScoreBoard scoreList={scoreList} />
+      </div>
     </div>
   )
   } else {

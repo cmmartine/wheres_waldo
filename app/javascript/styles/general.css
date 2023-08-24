@@ -15,18 +15,33 @@ code {
 
 .game-container {
   display: flex;
-  height: 2654px;
-  width: 3800px;
+  height: 2754px;
+  width: 3900px;
 }
 
 .game-timer {
   display: flex;
   justify-content: center;
   height: 110px;
-  width: 200px;
+  width: auto;
   background: white;
   font-size: 100px;
   border: 2px black solid;
+  padding: 5px 10px;
+}
+.score-board {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 300px;
+  background: white;
+  border: 2px black solid;
+  padding: 5px 10px;
+}
+
+.score-title-container {
+  display: flex;
+  justify-content: center;
 }
 
 .waldo-img-container {
