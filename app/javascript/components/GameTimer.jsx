@@ -1,11 +1,10 @@
 import React from "react";
-import { useState } from "react";
 
-export default function GameTimer() {
-  const [time, setTime] = useState(0);
+export default function GameTimer(props) {
+  const {time, changeTime} = props;
 
   (setTimeout(() => {
-    setTime(time + 1);
+    changeTime(time + 1);
   }, 1000));
 
   return(

@@ -10,6 +10,7 @@ export default function Main() {
   const [dataFetched, setDataFetched] = useState(false);
   const [userSelectionCoords, setUserSelectionCoords] = useState({x: 0, y: 0});
   const [scoreList, setScoreList] = useState([]);
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
     if (!dataFetched) {
@@ -77,6 +78,10 @@ export default function Main() {
     const gameFinished = isGameFinished();
   }
 
+  const changeTime = (newTime) => {
+    setTime(newTime);
+  }
+
   function isGameFinished() {
     let done = true;
     characters.forEach((character) => {
@@ -95,7 +100,7 @@ export default function Main() {
         <UserSelectionBox userSelectionCoords={userSelectionCoords} characters={characters} verifyCharacter={verifyCharacter}/>
       </div>
       <div>
-        <GameTimer />
+        <GameTimer time={time} changeTime={changeTime}/>
         <ScoreBoard scoreList={scoreList} />
       </div>
     </div>
