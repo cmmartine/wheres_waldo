@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_185844) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_24_124042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "convention_characters", force: :cascade do |t|
     t.string "name"
     t.text "location", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.string "name"
+    t.integer "score" #Score in the model is seconds, converted to a time in minutes, seconds in frontend
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

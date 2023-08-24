@@ -70,6 +70,17 @@ export default function Main() {
     } else {
       console.log('Wrong!');
     }
+    console.log(isGameFinished());
+  }
+
+  function isGameFinished() {
+    let done = true;
+    characters.forEach((character) => {
+      if (character.found == false) {
+        done = false;
+      }
+    });
+    return done
   }
 
   if (characters !== []) {
