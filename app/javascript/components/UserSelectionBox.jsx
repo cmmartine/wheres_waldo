@@ -32,9 +32,11 @@ export default function UserSelectionBox(props) {
 
   const characterButtonStyle = {
     width: '100%',
-    height: '35px',
+    height: 'auto',
     background: 'white',
-    border: '1px solid black'
+    border: '1px solid black',
+    fontSize: '20px',
+    padding: '8px',
   }
 
   return(

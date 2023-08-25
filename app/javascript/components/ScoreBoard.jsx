@@ -14,7 +14,7 @@ export default function ScoreBoard(props) {
       return x.score - y.score;
       })
       .map((obj) => (
-        <div>{obj.name}: {Math.floor(obj.score / 60)} minutes {obj.score % 60} seconds</div>
+        <div className='scores'>{obj.name}: {Math.floor(obj.score / 60)} minutes {obj.score % 60} seconds</div>
       ))
       }
     </div>
