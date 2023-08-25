@@ -4,6 +4,7 @@ import waldoConvention from '../../assets/images/Waldo_Convention.jpg';
 import UserSelectionBox from './UserSelectionBox';
 import GameTimer from "./GameTimer";
 import ScoreBoard from "./ScoreBoard";
+import InputUserScore from "./InputUserScore";
 
 export default function Main() {
   const [characters, setCharacters] = useState([]);
@@ -11,6 +12,7 @@ export default function Main() {
   const [userSelectionCoords, setUserSelectionCoords] = useState({x: 0, y: 0});
   const [scoreList, setScoreList] = useState([]);
   const [time, setTime] = useState(0);
+  const [gameFinished, setGameFinished] = useState(false);
 
   useEffect(() => {
     if (!dataFetched) {
@@ -75,7 +77,7 @@ export default function Main() {
     } else {
       console.log('Wrong!');
     }
-    const gameFinished = isGameFinished();
+    setGameFinished(isGameFinished());
   }
 
   const changeTime = (newTime) => {
@@ -92,7 +94,13 @@ export default function Main() {
     return done
   }
 
-  if (characters !== []) {
+  const resetGame = () => {
+    setDataFetched(false);
+    setGameFinished(false);
+    setTime(0);
+  }
+
+  if (characters != [] && gameFinished == false) {
   return(
     <div className='game-container'>
       <div className='waldo-img-container'>
@@ -105,6 +113,21 @@ export default function Main() {
       </div>
     </div>
   )
+  } else if (gameFinished == true) {
+    return(
+      <div className='game-container'>
+      <div className='waldo-img-container'>
+        <img src={waldoConvention} onClick={handleUserClickCreate}/>
+        <InputUserScore time={time} resetGame={resetGame}/>
+      </div>
+      <div>
+        <div className='game-timer'>
+          {time}
+        </div>
+        <ScoreBoard scoreList={scoreList} />
+      </div>
+    </div>
+    )
   } else {
     return(
       <h1>Loading...</h1>

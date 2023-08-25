@@ -31,5 +31,6 @@ import '../index';
 import '../components/Main.jsx';
 import '../components/UserSelectionBox.jsx';
 import '../components/GameTimer.jsx';
-import '../components/ScoreBoard.jsx'
+import '../components/ScoreBoard.jsx';
+import '../components/InputUserScore.jsx';
 import '../styles/general.css';
