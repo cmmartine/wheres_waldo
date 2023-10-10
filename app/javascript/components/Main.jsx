@@ -12,6 +12,7 @@ export default function Main() {
   const [characters, setCharacters] = useState([]);
   const [userSelectionCoords, setUserSelectionCoords] = useState({x: 0, y: 0});
   const [userSelectionBoxVis, setUserSelectionBoxVis] = useState(false);
+  const [scoresFetched, setScoresFetched] = useState(false);
   const [scoreList, setScoreList] = useState([]);
   const [time, setTime] = useState(0);
   const [gameFinished, setGameFinished] = useState(false);
@@ -32,10 +33,13 @@ export default function Main() {
         setCharacters(characterArray);
       })
     }
-    fetch('/scores/index')
-      .then((res) => res.json())
-      .then((data) => setScoreList(data));
-  }, [characterGroup]);
+    if (!scoresFetched) {
+      fetch('/scores/index')
+        .then((res) => res.json())
+        .then((data) => setScoreList(data));
+      setScoresFetched(true);
+    }
+  }, [characterGroup, scoresFetched]);
   
   const handleUserClickCreate = (e) => {
     const x = e.pageX;
@@ -100,6 +104,7 @@ export default function Main() {
 
   const resetGame = () => {
     setGameFinished(false);
+    setScoresFetched(false);
     setTime(0);
     setCharacterGroup(0);
   }
