@@ -11,6 +11,6 @@ class ScoresController < ApplicationController
   private
 
   def score_params
-    params.require(:score).permit(:score, :name)
+    params.require(:score).permit(:score, :name, :character_group)
   end
 end

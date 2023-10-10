@@ -33,7 +33,7 @@ code {
 .score-board {
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: fit-content;
   width: 500px;
   background: white;
   border: 2px black solid;
@@ -43,6 +43,11 @@ code {
 .score-title-container {
   display: flex;
   justify-content: center;
+}
+
+.score-group-heading {
+  display: flex;
+  align-self: center;
 }
 
 .scores {
@@ -70,7 +75,7 @@ img {
   align-items: center;
   justify-content: center;
   height: 400px;
-  width:550px;
+  width: 550px;
   position: absolute;
   left: 1500px;
   top: 1000px;
@@ -91,11 +96,24 @@ img {
   font-size: 50px;
 }
 
-.name-input-button {
+.input-button {
   height: 70px;
   width: 150px;
   font-size: 30px;
   background-color: rgb(248, 114, 114);
   border: 2px black solid;
   margin-top: 25px;
+}
+
+.group-selection-div {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  height: 400px;
+  width: 550px;
+  background: white;
+  border: 2px black solid;
+  font-size: 50px;
+  padding: 20px;
 }

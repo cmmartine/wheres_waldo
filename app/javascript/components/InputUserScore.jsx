@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 export default function InputUserScore(props) {
-  const {time, resetGame} = props;
+  const {time, resetGame, characterGroup} = props;
   const [inputName, setInputName] = useState('');
   const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
@@ -21,6 +21,7 @@ export default function InputUserScore(props) {
         JSON.stringify({score: {
           score: time,
           name: inputName,
+          character_group: characterGroup
         }})
       }
     )
@@ -36,7 +37,7 @@ export default function InputUserScore(props) {
           e.preventDefault();
           updateName(e.target.value);
           }}/>
-        <input type='submit' className='name-input-button' value='Submit' onClick={(e) => {
+        <input type='submit' className='input-button' value='Submit' onClick={(e) => {
           e.preventDefault();
           postTimeForScore();
         }}/>
