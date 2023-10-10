@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function UserSelectionBox(props) {
-  const {userSelectionCoords, characters, verifyCharacter} = props;
+  const {userSelectionCoords, characters, verifyCharacter, boxVisibilityStatus} = props;
   const halfBoxSize = {x: 55, y: 85};
   let leftX = userSelectionCoords.x - halfBoxSize.x;
   let rightX = userSelectionCoords.x + halfBoxSize.x; 
@@ -38,17 +38,38 @@ export default function UserSelectionBox(props) {
     fontSize: '20px',
     padding: '8px',
   }
+  const characterButtonStyleFound = {
+    width: '100%',
+    height: 'auto',
+    background: 'white',
+    border: '1px solid black',
+    fontSize: '20px',
+    padding: '8px',
+    textDecoration: 'line-through',
+  }
 
-  return(
-    <div>
-      <div style={boxStyle} />
-      <div style={dropDownStyle}>
-        {characters.map((character) => (
-          <button style={characterButtonStyle} disabled={character.found} onClick={() => verifyCharacter(boxCoords, character)}>
-            {character.name}
-          </button>
-        ))}
+  if (boxVisibilityStatus) {
+    return(
+      <div>
+        <div style={boxStyle} />
+        <div style={dropDownStyle}>
+          {characters.map((character) => {
+            if (character.found) { 
+              return <button style={characterButtonStyleFound} disabled={true} onClick={() => verifyCharacter(boxCoords, character)}>
+                {character.name}
+              </button>
+            } else {
+              return <button style={characterButtonStyle} disabled={false} onClick={() => verifyCharacter(boxCoords, character)}>
+                {character.name}
+              </button>
+            }
+          })}
+        </div>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return(
+      <div></div>
+    )
+  }
 }

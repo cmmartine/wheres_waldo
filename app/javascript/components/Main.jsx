@@ -10,6 +10,7 @@ export default function Main() {
   const [characters, setCharacters] = useState([]);
   const [dataFetched, setDataFetched] = useState(false);
   const [userSelectionCoords, setUserSelectionCoords] = useState({x: 0, y: 0});
+  const [userSelectionBoxVis, setUserSelectionBoxVis] = useState(false);
   const [scoreList, setScoreList] = useState([]);
   const [time, setTime] = useState(0);
   const [gameFinished, setGameFinished] = useState(false);
@@ -38,6 +39,7 @@ export default function Main() {
     const x = e.pageX;
     const y = e.pageY;
     setUserSelectionCoords({x: x, y: y});
+    setUserSelectionBoxVis(!userSelectionBoxVis);
   }
 
   const verifyCharacter = (boxCoords, chosenCharacter) => {
@@ -105,7 +107,7 @@ export default function Main() {
     <div className='game-container'>
       <div className='waldo-img-container'>
         <img src={waldoConvention} onClick={handleUserClickCreate}/>
-        <UserSelectionBox userSelectionCoords={userSelectionCoords} characters={characters} verifyCharacter={verifyCharacter}/>
+        <UserSelectionBox userSelectionCoords={userSelectionCoords} characters={characters} verifyCharacter={verifyCharacter} boxVisibilityStatus={userSelectionBoxVis}/>
       </div>
       <div>
         <GameTimer time={time} changeTime={changeTime}/>
