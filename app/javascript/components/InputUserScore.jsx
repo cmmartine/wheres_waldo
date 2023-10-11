@@ -29,19 +29,38 @@ export default function InputUserScore(props) {
     setInputName('');
   }
 
-  return(
-    <div className='input-user-score-container'>
-      <form className='name-input-form'>
-        <label>Enter your name:</label>
-        <input className='name-input' type='text' defaultValue={inputName} onChange={(e) => {
-          e.preventDefault();
-          updateName(e.target.value);
+  if (inputName.length > 0 && inputName.length < 11) { 
+    return(
+      <div className='input-user-score-container'>
+        <form className='name-input-form'>
+          <label>Enter your name:</label>
+          <input className='name-input' type='text' defaultValue={inputName} onChange={(e) => {
+            e.preventDefault();
+            updateName(e.target.value);
+            }}/>
+          <input type='submit' className='input-button' value='Submit' onClick={(e) => {
+            e.preventDefault();
+            postTimeForScore();
           }}/>
-        <input type='submit' className='input-button' value='Submit' onClick={(e) => {
-          e.preventDefault();
-          postTimeForScore();
-        }}/>
-      </form>
-    </div>
-  )
+        </form>
+      </div>
+    )
+  } else {
+    return(
+      <div className='input-user-score-container'>
+        <form className='name-input-form'>
+          <label>Enter your name:</label>
+          <input className='name-input' type='text' defaultValue={inputName} onChange={(e) => {
+            e.preventDefault();
+            updateName(e.target.value);
+            }}/>
+          <input type='submit' className='input-button' value='Submit' disabled={true} onClick={(e) => {
+            e.preventDefault();
+            postTimeForScore();
+          }}/>
+        </form>
+        <p>Name must be between 1 and 10 characters.</p>
+      </div>
+    )
+  }
 }
