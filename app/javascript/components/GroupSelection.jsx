@@ -9,13 +9,13 @@ export default function GroupSelect(props) {
         Instructions:
       </p>
       <p className='game-instructions'>
-        Click anywhere to open the character select menu, 
-        click anywhere outside of this menu and selection box 
-        to get rid of it until you click again.
+        After the image appears, clicking will open a character selector.
+        Clicking outside of this selector will make it disappear, and you can
+        then click again elsewhere to bring it back up.
       </p>
       <p className='game-instructions'>
         To select a character get them into the selection box 
-        and click on their name.
+        and then click on their name.
       </p>
       <p className='game-instructions'>
         Zoom in and out by holding left ctrl and scrolling your mouse wheel.

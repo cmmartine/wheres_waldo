@@ -29,8 +29,4 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 
 import '../index';
 import '../components/Main.jsx';
-import '../components/UserSelectionBox.jsx';
-import '../components/GameTimer.jsx';
-import '../components/ScoreBoard.jsx';
-import '../components/InputUserScore.jsx';
 import '../styles/general.css';
