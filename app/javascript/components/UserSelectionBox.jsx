@@ -30,24 +30,6 @@ export default function UserSelectionBox(props) {
     height: 'auto',
   }
 
-  const characterButtonStyle = {
-    width: '100%',
-    height: 'auto',
-    background: 'white',
-    border: '1px solid black',
-    fontSize: '20px',
-    padding: '8px',
-  }
-  const characterButtonStyleFound = {
-    width: '100%',
-    height: 'auto',
-    background: 'white',
-    border: '1px solid black',
-    fontSize: '20px',
-    padding: '8px',
-    textDecoration: 'line-through',
-  }
-
   if (boxVisibilityStatus) {
     return(
       <div>
@@ -55,11 +37,11 @@ export default function UserSelectionBox(props) {
         <div style={dropDownStyle}>
           {characters.map((character) => {
             if (character.found) { 
-              return <button style={characterButtonStyleFound} disabled={true} onClick={() => verifyCharacter(boxCoords, character)}>
+              return <button className='character-button-found' disabled={true} onClick={() => verifyCharacter(boxCoords, character)}>
                 {character.name}
               </button>
             } else {
-              return <button style={characterButtonStyle} disabled={false} onClick={() => verifyCharacter(boxCoords, character)}>
+              return <button className='character-button' disabled={false} onClick={() => verifyCharacter(boxCoords, character)}>
                 {character.name}
               </button>
             }

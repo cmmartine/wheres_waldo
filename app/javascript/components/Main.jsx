@@ -113,7 +113,7 @@ export default function Main() {
     return(
       <div className='game-container'>
         <GroupSelect setCharacterGroup={setCharacterGroup}/>
-        <ScoreBoard scoreList={scoreList} />
+        <ScoreBoard scoreList={scoreList} scoreBoardStyle={'score-board'}/>
       </div>
     )
   } else if (characters != [] && gameFinished == false) {
@@ -125,7 +125,7 @@ export default function Main() {
         </div>
         <div>
           <GameTimer time={time} changeTime={changeTime}/>
-          <ScoreBoard scoreList={scoreList} />
+          <ScoreBoard scoreList={scoreList} scoreBoardStyle={'score-board-hidden'}/>
         </div>
       </div>
     )
@@ -140,7 +140,7 @@ export default function Main() {
         <div className='game-timer'>
           {time}
         </div>
-        <ScoreBoard scoreList={scoreList} />
+        <ScoreBoard scoreList={scoreList} scoreBoardStyle={'score-board'}/>
       </div>
     </div>
     )

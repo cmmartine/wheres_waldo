@@ -6,7 +6,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "vite build --outDir public"
+  },
   "devDependencies": {
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
@@ -17,5 +19,6 @@
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-ruby": "^3.2.0",
     "vite-plugin-stimulus-hmr": "^3.0.0"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }

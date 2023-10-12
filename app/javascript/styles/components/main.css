@@ -1,0 +1,23 @@
+.game-container {
+  display: flex;
+  height: 2754px;
+  width: 4120px;
+}
+
+.game-container-score {
+  display: flex;
+  height: 2754px;
+  width: 4120px;
+}
+
+.waldo-img-container {
+  display: flex;
+  flex-direction: column;
+  height: 2544px;
+  width: 3700px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
