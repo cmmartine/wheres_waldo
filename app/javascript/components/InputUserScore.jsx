@@ -24,9 +24,10 @@ export default function InputUserScore(props) {
           character_group: characterGroup
         }})
       }
-    )
-    resetGame();
-    setInputName('');
+    ).then(() => {
+      resetGame();
+      setInputName('');
+    })
   }
 
   if (inputName.length > 0 && inputName.length < 11) { 
